@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import Intervention from './interfaces';
+import {observer} from 'mobx-react-lite';
+import StoreProvider from './StoreProvider';
+import ObservableInterventionsList from './components/ObservableInterventionsList/ObservableInterventionsList';
+import InterventionForm from './components/InterventionForm/InterventionForm';
+// import {observable} from 'mobx';
+// import {useState} from 'react';
 
-const App = () => {
+
+const App = observer(() => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreProvider>
+      <h1>Test</h1>
+      <ObservableInterventionsList></ObservableInterventionsList>
+      <InterventionForm></InterventionForm>
+    </StoreProvider>
   );
-};
+});
 
 export default App;
