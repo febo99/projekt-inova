@@ -12,7 +12,7 @@ import InterventionForm from './components/InterventionForm/InterventionForm';
 const App = observer(() => {
   return (
     <StoreProvider>
-      <h1>Test</h1>
+      <h1>Lista intervencij</h1>
       <ObservableInterventionsList></ObservableInterventionsList>
       <InterventionForm></InterventionForm>
     </StoreProvider>

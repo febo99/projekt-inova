@@ -8,39 +8,40 @@ const InterventionForm: React.SFC<IInterventionFormProps> = (props) => {
   const store = React.useContext(InterventionsContext);
   const [intervention, setIntervention] = React.useState<Intervetion>({name: '', location: '', leader: '', completed: false});
 
-  const handleNameChange = (e:React.FormEvent<HTMLInputElement>) =>{
-    const newIntervention:Intervetion|null = intervention;
-    if (newIntervention === null) return;
-    newIntervention.name = e.currentTarget.value;
-    setIntervention(newIntervention);
-  };
 
-  const handleLocationChange = (e:React.FormEvent<HTMLInputElement>) =>{
-    const newIntervention:Intervetion|null = intervention;
-    if (newIntervention === null) return;
-    newIntervention.location = e.currentTarget.value;
-    setIntervention(newIntervention);
-  };
-
-  const handleLeaderChange = (e:React.FormEvent<HTMLInputElement>) =>{
-    const newIntervention:Intervetion|null = intervention;
-    if (newIntervention === null) return;
-    newIntervention.leader = e.currentTarget.value;
-    setIntervention(newIntervention);
+  // vsak kljuc interfaca Intervention extendamo kot P, P pa je parameter, ki ga podamo pri klicu kot prvega v obliki stringa
+  // druga vrednost pa nam pove kaksno vrednost bomo nastavili
+  // znebimo se redudance
+  // pomoc na https://typeofnan.dev/a-react-typescript-change-handler-to-rule-them-all/
+  const onInterventionChange = <P extends keyof Intervetion>(prop: P, value: Intervetion[P]) =>{
+    setIntervention({...intervention, [prop]: value});
   };
 
   const handleSubmit = (e:any) =>{
+    e.preventDefault();
+
+    if (intervention.name === '' || intervention.location === '' || intervention.leader === '') {
+      return;
+    }
     store?.addIntervention(intervention);
     setIntervention({name: '', location: '', leader: '', completed: false});
-    e.preventDefault();
   };
 
   return useObserver(() => (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input type='text' placeholder='Naziv' defaultValue={intervention.name} onChange={(e) => handleNameChange(e)}></input>
-        <input type='text' placeholder='Lokacija' defaultValue={intervention.location} onChange={(e) => handleLocationChange(e)}></input>
-        <input type='text' placeholder='Vodja' defaultValue={intervention.leader} onChange={(e) => handleLeaderChange(e)}></input>
+        <input type='text'
+          placeholder='Naziv'
+          value={intervention.name}
+          onChange={(e) => onInterventionChange('name', e.target.value)}></input>
+        <input
+          type='text' placeholder='Lokacija'
+          value={intervention.location}
+          onChange={(e) => onInterventionChange('location', e.target.value)}></input>
+        <input type='text'
+          placeholder='Vodja'
+          value={intervention.leader}
+          onChange={(e) => onInterventionChange('leader', e.target.value)}></input>
         <button type='submit' >Dodaj</button>
       </form>
     </div>

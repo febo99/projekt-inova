@@ -11,7 +11,7 @@ const StoreProvider = (children:any) =>{
       store.interventions.push(intervention);
     },
   }));
-  store.addIntervention({name: 'Test', location: 'Test', leader: 'Leader', completed: false});
+  //   store.addIntervention({name: 'Test', location: 'Test', leader: 'Leader', completed: false});
   return (
     <InterventionsContext.Provider value={store}>{children.children}</InterventionsContext.Provider>
   );
