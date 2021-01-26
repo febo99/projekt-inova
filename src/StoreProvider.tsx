@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {useLocalStore} from 'mobx-react-lite';
-import {Intervetion} from './interfaces';
+import {Intervention} from './interfaces';
 import InterventionsContext from './InterventionsContext';
 
 
 const StoreProvider = (children:any) =>{
   const store = useLocalStore(() => ({
-    interventions: [] as Intervetion[],
-    addIntervention: (intervention:Intervetion) =>{
+    interventions: [] as Intervention[],
+    addIntervention: (intervention:Intervention) =>{
       store.interventions.push(intervention);
     },
-    completeIntervention: (intervention:Intervetion) => {
+    completeIntervention: (intervention:Intervention) => {
       intervention.completed = !intervention.completed;
     },
     get numberOfActiveInterventions() {

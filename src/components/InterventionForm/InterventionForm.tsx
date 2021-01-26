@@ -1,20 +1,20 @@
 import {Button, TextField} from '@material-ui/core';
 import {useObserver} from 'mobx-react-lite';
 import * as React from 'react';
-import {Intervetion} from '../../interfaces';
+import {Intervention} from '../../interfaces';
 import InterventionsContext from '../../InterventionsContext';
 import {IInterventionFormProps} from './IInterventionFormProps';
 import {FormContainer, Container} from '../../styles';
 
 const InterventionForm: React.SFC<IInterventionFormProps> = (props) => {
   const store = React.useContext(InterventionsContext);
-  const [intervention, setIntervention] = React.useState<Intervetion>({name: '', location: '', leader: '', completed: false});
+  const [intervention, setIntervention] = React.useState<Intervention>({name: '', location: '', leader: '', completed: false});
 
   // vsak kljuc interfaca Intervention extendamo kot P, P pa je parameter, ki ga podamo pri klicu kot prvega v obliki stringa
   // druga vrednost pa nam pove kaksno vrednost bomo nastavili
   // znebimo se redudance
   // pomoc na https://typeofnan.dev/a-react-typescript-change-handler-to-rule-them-all/
-  const onInterventionChange = <P extends keyof Intervetion>(prop: P, value: Intervetion[P]) =>{
+  const onInterventionChange = <P extends keyof Intervention>(prop: P, value: Intervention[P]) =>{
     setIntervention({...intervention, [prop]: value});
   };
 
