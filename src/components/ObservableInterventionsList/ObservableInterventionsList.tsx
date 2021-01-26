@@ -8,7 +8,10 @@ const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> 
   const store:StoreInterface|null = React.useContext(InterventionsContext);
   return useObserver(() =>(
     <ul>
-      {store?.interventions.map((a, i) => (<li key={i}>{a.name} {a.location} {a.leader}</li>))}
+      {store?.interventions.map((a, i) => (
+        <li key={i}>{a.name} {a.location} {a.leader}
+          <input type='checkbox' onChange={() => store.completeIntervention(a)}></input></li>
+      ))}
     </ul>
   ));
 };

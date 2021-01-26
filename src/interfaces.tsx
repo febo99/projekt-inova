@@ -6,5 +6,8 @@ export interface Intervetion{
 };;
 export interface StoreInterface{
     interventions:Intervetion[],
-    addIntervention:Function
+    addIntervention:Function,
+    completeIntervention:Function,
+    numberOfActiveInterventions:Number,
+    numberOfCompletedInterventions:Number
 };;

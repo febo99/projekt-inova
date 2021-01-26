@@ -5,6 +5,7 @@ import {observer} from 'mobx-react-lite';
 import StoreProvider from './StoreProvider';
 import ObservableInterventionsList from './components/ObservableInterventionsList/ObservableInterventionsList';
 import InterventionForm from './components/InterventionForm/InterventionForm';
+import InfoHeader from './components/InfoHeader/InfoHeader';
 // import {observable} from 'mobx';
 // import {useState} from 'react';
 
@@ -12,7 +13,7 @@ import InterventionForm from './components/InterventionForm/InterventionForm';
 const App = observer(() => {
   return (
     <StoreProvider>
-      <h1>Lista intervencij</h1>
+      <InfoHeader></InfoHeader>
       <ObservableInterventionsList></ObservableInterventionsList>
       <InterventionForm></InterventionForm>
     </StoreProvider>
