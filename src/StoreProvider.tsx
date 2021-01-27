@@ -1,22 +1,25 @@
 import * as React from 'react';
-import {useLocalStore} from 'mobx-react-lite';
-import {Intervention, IStoreProvider} from './interfaces';
+import {useLocalObservable} from 'mobx-react-lite';
+import {Intervention, IStoreProvider, StoreInterface} from './interfaces';
 import InterventionsContext from './InterventionsContext';
 import PropTypes from 'prop-types';
 
 const StoreProvider:React.FC<IStoreProvider> = (props) =>{
-  const store = useLocalStore(() => ({
+  const store:StoreInterface|null = useLocalObservable(() => ({
     interventions: [] as Intervention[],
     addIntervention: (intervention:Intervention) =>{
+      if (!store) return;
       store.interventions.push(intervention);
     },
     completeIntervention: (intervention:Intervention) => {
       intervention.completed = !intervention.completed;
     },
     get numberOfActiveInterventions() {
+      if (!store) return 0;
       return store.interventions.filter((item) => !item.completed).length;
     },
     get numberOfCompletedInterventions() {
+      if (!store) return 0;
       return store.interventions.filter((item) => item.completed).length;
     },
   }));
