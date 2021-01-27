@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {useLocalStore} from 'mobx-react-lite';
-import {Intervention} from './interfaces';
+import {Intervention, IStoreProvider} from './interfaces';
 import InterventionsContext from './InterventionsContext';
+import PropTypes from 'prop-types';
 
-
-const StoreProvider = (children:any) =>{
+const StoreProvider:React.FC<IStoreProvider> = (props) =>{
   const store = useLocalStore(() => ({
     interventions: [] as Intervention[],
     addIntervention: (intervention:Intervention) =>{
@@ -20,9 +20,14 @@ const StoreProvider = (children:any) =>{
       return store.interventions.filter((item) => item.completed).length;
     },
   }));
-  store.addIntervention({name: 'Test', location: 'Test', leader: 'Leader', completed: false});
+  store.addIntervention({name: 'Testna zadeva', location: 'Malecnik', leader: 'Lah Ziga', completed: false});
   return (
-    <InterventionsContext.Provider value={store}>{children.children}</InterventionsContext.Provider>
+    <InterventionsContext.Provider value={store}>{props.children}</InterventionsContext.Provider>
   );
 };
+
+StoreProvider.propTypes ={
+  children: PropTypes.node.isRequired,
+};
+
 export default StoreProvider;

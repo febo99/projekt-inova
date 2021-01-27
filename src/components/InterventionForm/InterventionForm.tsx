@@ -9,6 +9,7 @@ import {FormContainer, Container} from '../../styles';
 const InterventionForm: React.SFC<IInterventionFormProps> = (props) => {
   const store = React.useContext(InterventionsContext);
   const [intervention, setIntervention] = React.useState<Intervention>({name: '', location: '', leader: '', completed: false});
+  const [submitted, setSubmitted] = React.useState<boolean>(false);
 
   // vsak kljuc interfaca Intervention extendamo kot P, P pa je parameter, ki ga podamo pri klicu kot prvega v obliki stringa
   // druga vrednost pa nam pove kaksno vrednost bomo nastavili
@@ -21,9 +22,11 @@ const InterventionForm: React.SFC<IInterventionFormProps> = (props) => {
   const handleSubmit = (e:React.FormEvent) =>{
     e.preventDefault();
     if (intervention.name === '' || intervention.location === '' || intervention.leader === '') {
+      setSubmitted(true);
       return;
     }
     store?.addIntervention(intervention);
+    setSubmitted(false);
     setIntervention({name: '', location: '', leader: '', completed: false});
   };
 
@@ -33,18 +36,18 @@ const InterventionForm: React.SFC<IInterventionFormProps> = (props) => {
         <TextField className='formInput' id="standard-basic"
           type='text'
           label='Naziv'
-          error = {intervention.name === ''}
+          error = {intervention.name === '' && submitted}
           value={intervention.name}
           onChange={(e) => onInterventionChange('name', e.target.value)}></TextField>
         <TextField className='formInput' id="standard-basic"
           type='text'
-          error = {intervention.location === ''}
+          error = {intervention.location === '' && submitted}
           label='Lokacija'
           value={intervention.location}
           onChange={(e) => onInterventionChange('location', e.target.value)}></TextField>
         <TextField className='formInput' id="standard-basic"
           type='text'
-          error = {intervention.leader === ''}
+          error = {intervention.leader === '' && submitted}
           label='Vodja'
           value={intervention.leader}
           onChange={(e) => onInterventionChange('leader', e.target.value)}></TextField>

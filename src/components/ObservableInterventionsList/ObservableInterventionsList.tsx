@@ -7,6 +7,7 @@ import {Checkbox, Paper, Table, TableBody, TableCell, TableContainer, TableHead,
 
 const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> = (props) => {
   const store:StoreInterface|null = React.useContext(InterventionsContext);
+
   return useObserver(() =>(
     <TableContainer component={Paper}>
       <Table>
