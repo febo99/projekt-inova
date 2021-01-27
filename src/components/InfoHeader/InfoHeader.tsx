@@ -4,7 +4,7 @@ import InterventionsContext from '../../InterventionsContext';
 import {Container, HeaderDiv, Information} from '../../styles';
 import {IInfoHeaderProps} from './IInfoHeaderProps';
 
-const InfoHeader: React.SFC<IInfoHeaderProps> = (props) => {
+const InfoHeader: React.SFC<IInfoHeaderProps> = () => {
   const store = React.useContext(InterventionsContext);
 
   return (

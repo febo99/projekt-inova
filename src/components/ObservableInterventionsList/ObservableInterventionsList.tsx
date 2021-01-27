@@ -5,7 +5,7 @@ import {StoreInterface} from '../../interfaces';
 import {IObservableInterventionsListProps} from './IObservableInterventionsListProps';
 import {Checkbox, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@material-ui/core';
 
-const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> = (props) => {
+const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> = () => {
   const store:StoreInterface|null = React.useContext(InterventionsContext);
 
   return (

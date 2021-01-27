@@ -6,7 +6,7 @@ import InterventionsContext from '../../InterventionsContext';
 import {IInterventionFormProps} from './IInterventionFormProps';
 import {FormContainer, Container} from '../../styles';
 
-const InterventionForm: React.SFC<IInterventionFormProps> = (props) => {
+const InterventionForm: React.SFC<IInterventionFormProps> = () => {
   const store = React.useContext(InterventionsContext);
   const [intervention, setIntervention] = React.useState<Intervention>({name: '', location: '', leader: '', completed: false});
   const [submitted, setSubmitted] = React.useState<boolean>(false);
