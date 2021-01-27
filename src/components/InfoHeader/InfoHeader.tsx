@@ -15,6 +15,7 @@ const InfoHeader: React.SFC<IInfoHeaderProps> = (props) => {
             <h1>Lista intervencij</h1>
           </HeaderDiv>
           <Information>
+            <h3>Vse intervencije: {store?.interventions.length}</h3>
             <h3>Aktivne intervencije: {store?.numberOfActiveInterventions}</h3>
             <h3>Koncane intervencije: {store?.numberOfCompletedInterventions}</h3>
           </Information>

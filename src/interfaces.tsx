@@ -9,6 +9,7 @@ export interface StoreInterface{
     interventions:Intervention[],
     addIntervention:Function,
     completeIntervention:Function,
+    removeIntervention:Function,
     numberOfActiveInterventions:Number,
     numberOfCompletedInterventions:Number
 };

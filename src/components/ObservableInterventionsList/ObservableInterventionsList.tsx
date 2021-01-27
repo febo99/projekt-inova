@@ -24,7 +24,7 @@ const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> 
 
             <TableBody>
               {store?.interventions.map((intervention, idx) =>(
-                <TableRow key={idx}>
+                <TableRow key={idx} onDoubleClick={() => store.removeIntervention(intervention)}>
                   <TableCell>{intervention.name}</TableCell>
                   <TableCell>{intervention.location}</TableCell>
                   <TableCell>{intervention.leader}</TableCell>

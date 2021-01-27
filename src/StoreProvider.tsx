@@ -7,12 +7,19 @@ import PropTypes from 'prop-types';
 const StoreProvider:React.FC<IStoreProvider> = (props) =>{
   const store:StoreInterface|null = useLocalObservable(() => ({
     interventions: [] as Intervention[],
-    addIntervention: (intervention:Intervention) =>{
+    addIntervention: (intervention:Intervention) => {
       if (!store) return;
       store.interventions.push(intervention);
     },
     completeIntervention: (intervention:Intervention) => {
       intervention.completed = !intervention.completed;
+    },
+    removeIntervention: (intervention:Intervention) => {
+      if (!store) return;
+      const index:number = store.interventions.indexOf(intervention, 0);
+      if (index > -1) {
+        store.interventions.splice(index, 1);
+      }
     },
     get numberOfActiveInterventions() {
       if (!store) return 0;
