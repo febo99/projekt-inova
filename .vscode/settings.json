@@ -1,5 +1,16 @@
 {
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "prettier.disableLanguages": [
+    "tsx"
+  ],
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true
 }

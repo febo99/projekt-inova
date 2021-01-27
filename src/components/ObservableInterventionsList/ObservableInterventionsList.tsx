@@ -13,7 +13,7 @@ import {
   TableRow,
 } from '@material-ui/core';
 
-interface IObservableInterventionsListProps { }
+interface IObservableInterventionsListProps {}
 
 const ObservableInterventionsList: React.FC<IObservableInterventionsListProps> = () => {
   const store: StoreInterface | null = React.useContext(InterventionsContext);

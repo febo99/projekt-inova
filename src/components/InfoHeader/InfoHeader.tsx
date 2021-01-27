@@ -3,7 +3,7 @@ import * as React from 'react';
 import InterventionsContext from '../../contexts/InterventionsContext';
 import { Container, HeaderDiv, Information } from '../../styles/Styles';
 
-interface IInfoHeaderProps { }
+interface IInfoHeaderProps {}
 
 const InfoHeader: React.FC<IInfoHeaderProps> = () => {
   const store = React.useContext(InterventionsContext);

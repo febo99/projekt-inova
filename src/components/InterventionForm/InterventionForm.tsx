@@ -5,7 +5,7 @@ import { Intervention } from '../../interfaces/Interfaces';
 import InterventionsContext from '../../contexts/InterventionsContext';
 import { FormContainer, Container } from '../../styles/Styles';
 
-interface IInterventionFormProps { }
+interface IInterventionFormProps {}
 
 const InterventionForm: React.FC<IInterventionFormProps> = () => {
   const store = React.useContext(InterventionsContext);
@@ -20,7 +20,7 @@ const InterventionForm: React.FC<IInterventionFormProps> = () => {
   // help https://typeofnan.dev/a-react-typescript-change-handler-to-rule-them-all/
   const onInterventionChange = <P extends keyof Intervention>(
     prop: P,
-    value: Intervention[P],
+    value: Intervention[P]
   ) => {
     setIntervention({ ...intervention, [prop]: value });
   };
