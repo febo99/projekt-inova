@@ -1,7 +1,7 @@
 import {Observer} from 'mobx-react-lite';
 import * as React from 'react';
 import InterventionsContext from '../../InterventionsContext';
-import {StoreInterface} from '../../interfaces';
+import {StoreInterface} from '../../Interfaces';
 import {IObservableInterventionsListProps} from './IObservableInterventionsListProps';
 import {Checkbox, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@material-ui/core';
 

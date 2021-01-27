@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useLocalObservable} from 'mobx-react-lite';
-import {Intervention, IStoreProvider, StoreInterface} from './interfaces';
+import {Intervention, IStoreProvider, StoreInterface} from './Interfaces';
 import InterventionsContext from './InterventionsContext';
 import PropTypes from 'prop-types';
 

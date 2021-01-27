@@ -1,10 +1,10 @@
 import {Button, TextField} from '@material-ui/core';
 import {Observer} from 'mobx-react-lite';
 import * as React from 'react';
-import {Intervention} from '../../interfaces';
+import {Intervention} from '../../Interfaces';
 import InterventionsContext from '../../InterventionsContext';
 import {IInterventionFormProps} from './IInterventionFormProps';
-import {FormContainer, Container} from '../../styles';
+import {FormContainer, Container} from '../../Styles';
 
 const InterventionForm: React.SFC<IInterventionFormProps> = () => {
   const store = React.useContext(InterventionsContext);

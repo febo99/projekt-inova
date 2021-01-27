@@ -1,7 +1,7 @@
 import {Observer} from 'mobx-react-lite';
 import * as React from 'react';
 import InterventionsContext from '../../InterventionsContext';
-import {Container, HeaderDiv, Information} from '../../styles';
+import {Container, HeaderDiv, Information} from '../../Styles';
 import {IInfoHeaderProps} from './IInfoHeaderProps';
 
 const InfoHeader: React.SFC<IInfoHeaderProps> = () => {
