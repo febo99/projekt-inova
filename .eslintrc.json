@@ -20,6 +20,10 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "max-len": [1,140,2]
+        "max-len": [1,140,2],
+        "indent": ["error", 2],
+        "no-console":["error"],
+        "quotes": ["error", "single", {"avoidEscape":true}],
+        "object-curly-spacing": ["error", "always"]
     }
 }
