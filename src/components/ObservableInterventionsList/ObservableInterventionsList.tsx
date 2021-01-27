@@ -1,12 +1,22 @@
-import {Observer} from 'mobx-react-lite';
+import { Observer } from 'mobx-react-lite';
 import * as React from 'react';
-import InterventionsContext from '../../InterventionsContext';
-import {StoreInterface} from '../../Interfaces';
-import {IObservableInterventionsListProps} from './IObservableInterventionsListProps';
-import {Checkbox, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@material-ui/core';
+import InterventionsContext from '../../contexts/InterventionsContext';
+import { StoreInterface } from '../../interfaces/Interfaces';
+import {
+  Checkbox,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@material-ui/core';
 
-const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> = () => {
-  const store:StoreInterface|null = React.useContext(InterventionsContext);
+interface IObservableInterventionsListProps { }
+
+const ObservableInterventionsList: React.FC<IObservableInterventionsListProps> = () => {
+  const store: StoreInterface | null = React.useContext(InterventionsContext);
 
   return (
     <Observer>
@@ -23,13 +33,19 @@ const ObservableInterventionsList: React.SFC<IObservableInterventionsListProps> 
             </TableHead>
 
             <TableBody>
-              {store?.interventions.map((intervention, idx) =>(
-                <TableRow key={idx} onDoubleClick={() => store.removeIntervention(intervention)}>
+              {store?.interventions.map((intervention, idx) => (
+                <TableRow
+                  key={idx}
+                  onDoubleClick={() => store.removeIntervention(intervention)}
+                >
                   <TableCell>{intervention.name}</TableCell>
                   <TableCell>{intervention.location}</TableCell>
                   <TableCell>{intervention.leader}</TableCell>
                   <TableCell>
-                    <Checkbox color='primary' onChange={() => store.completeIntervention(intervention)}/>
+                    <Checkbox
+                      color="primary"
+                      onChange={() => store.completeIntervention(intervention)}
+                    />
                   </TableCell>
                 </TableRow>
               ))}
