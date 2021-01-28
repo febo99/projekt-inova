@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Intervention } from '../../interfaces/Interfaces';
 import InterventionsContext from '../../contexts/InterventionsContext';
 import { FormContainer, Container } from '../../styles/Styles';
+import { InterventionData } from '../../constants/InterventionData';
 
 interface IInterventionFormProps {}
 
@@ -18,10 +19,7 @@ const InterventionForm: React.FC<IInterventionFormProps> = () => {
   const [submitted, setSubmitted] = React.useState<boolean>(false);
 
   // help https://typeofnan.dev/a-react-typescript-change-handler-to-rule-them-all/
-  const onInterventionChange = <P extends keyof Intervention>(
-    prop: P,
-    value: Intervention[P]
-  ) => {
+  const onInterventionChange = (prop: string, value: string | boolean) => {
     setIntervention({ ...intervention, [prop]: value });
   };
 
@@ -52,7 +50,9 @@ const InterventionForm: React.FC<IInterventionFormProps> = () => {
               label="Naziv"
               error={intervention.name === '' && submitted}
               value={intervention.name}
-              onChange={(e) => onInterventionChange('name', e.target.value)}
+              onChange={(e) =>
+                onInterventionChange(InterventionData.NAME, e.target.value)
+              }
             ></TextField>
             <TextField
               className="formInput"
@@ -61,7 +61,9 @@ const InterventionForm: React.FC<IInterventionFormProps> = () => {
               error={intervention.location === '' && submitted}
               label="Lokacija"
               value={intervention.location}
-              onChange={(e) => onInterventionChange('location', e.target.value)}
+              onChange={(e) =>
+                onInterventionChange(InterventionData.LOCATION, e.target.value)
+              }
             ></TextField>
             <TextField
               className="formInput"
@@ -70,7 +72,9 @@ const InterventionForm: React.FC<IInterventionFormProps> = () => {
               error={intervention.leader === '' && submitted}
               label="Vodja"
               value={intervention.leader}
-              onChange={(e) => onInterventionChange('leader', e.target.value)}
+              onChange={(e) =>
+                onInterventionChange(InterventionData.LEADER, e.target.value)
+              }
             ></TextField>
             <Button
               className="formInput"
