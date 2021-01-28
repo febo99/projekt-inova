@@ -5,7 +5,6 @@
   "prettier.disableLanguages": [
     "tsx"
   ],
-  "editor.formatOnSave": true,
   "[typescript]": {
     "editor.formatOnSave": false
   },
