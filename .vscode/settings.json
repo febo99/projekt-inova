@@ -3,7 +3,7 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
   "prettier.disableLanguages": [
-    "tsx"
+    "tsx","ts"
   ],
   "[typescript]": {
     "editor.formatOnSave": false

@@ -28,23 +28,13 @@
         "prettier"
     ],
     "rules": {
-        "max-len": [1,140,2],
-        "indent": ["error", 2],
+        "max-len": [1,150,2],
+        "indent":["error",4],
         "no-console":["error"],
-        "quotes": ["error", "single", {"avoidEscape":true}],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": [
           "error"
         ],
-        "object-curly-spacing": ["error", "always"],
-        "prettier/prettier": ["error",
-            {
-              "endOfLine": "lf",
-              "semi": true,
-              "singleQuote": true,
-              "bracketSpacing": true,
-              "tabWidth": 2,
-              "trailingComma": "es5"
-            }]
+        "object-curly-spacing": ["error", "always"]
     }
 }
