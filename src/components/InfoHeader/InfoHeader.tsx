@@ -17,9 +17,9 @@ const InfoHeader: React.FC<IInfoHeaderProps> = observer(() => {
                 </Toolbar>
             </AppBar>
             <Box display="flex">
-                <H3>Number of all: {store.interventions.length}</H3>
-                <H3>Active: {store.numberOfActiveInterventions}</H3>
-                <H3>Finished: {store.numberOfCompletedInterventions}</H3>
+                <H3>Number of all: {store?.interventions.length}</H3>
+                <H3>Active: {store?.numberOfActiveInterventions}</H3>
+                <H3>Finished: {store?.numberOfCompletedInterventions}</H3>
             </Box>
         </div>
     )
