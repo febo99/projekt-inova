@@ -1,4 +1,4 @@
 import React from "react"
-import { StoreInterface } from "../interfaces/Interfaces"
-const InterventionsContext = React.createContext<StoreInterface | null>(null)
+import Store from "../stores/Store"
+const InterventionsContext = React.createContext(new Store())
 export default InterventionsContext
