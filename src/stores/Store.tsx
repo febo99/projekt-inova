@@ -4,7 +4,7 @@ import { Intervention } from "../interfaces/Interfaces"
 /**
  * A class for Store
  */
-class Store {
+export default class Store {
     /**
      * Constructor - make object observable
      */
@@ -52,5 +52,3 @@ class Store {
         }
     }
 }
-
-export default Store
