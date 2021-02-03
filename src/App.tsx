@@ -1,18 +1,20 @@
 import React from "react"
 import "./App.css"
 import { observer } from "mobx-react-lite"
-import StoreProvider from "./providers/StoreProvider"
-import ObservableInterventionsList from "./components/ObservableInterventionsList/ObservableInterventionsList"
-import InterventionForm from "./components/InterventionForm/InterventionForm"
-import InfoHeader from "./components/InfoHeader/InfoHeader"
+import { BrowserRouter as Router } from "react-router-dom"
+import UserDataProvider from "./providers/UserDataProvider"
+import Menu from "./components/Menu/Menu"
 
 const App = observer(() => {
     return (
-        <StoreProvider>
-            <InfoHeader></InfoHeader>
-            <ObservableInterventionsList></ObservableInterventionsList>
-            <InterventionForm></InterventionForm>
-        </StoreProvider>
+        <div>
+            <UserDataProvider>
+                {/* Router must be in a parent component so useLocation works */}
+                <Router>
+                    <Menu></Menu>
+                </Router>
+            </UserDataProvider>
+        </div>
     )
 })
 
