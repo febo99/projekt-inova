@@ -2,14 +2,9 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from "@material-ui/cor
 import { observer } from "mobx-react-lite"
 import * as React from "react"
 import UserDataContext from "../../contexts/UserDataContext"
-// import InterventionsContext from "../../contexts/InterventionsContext"
+import { IEmailId } from "../../interfaces/Interfaces"
 
 interface ICompanySelectorProps {}
-
-interface IEmailId {
-    name: string
-    id: string
-}
 
 const CompanySelector: React.FC<ICompanySelectorProps> = observer(() => {
     const [companies, setCompanies] = React.useState<IEmailId[]>([])
@@ -21,8 +16,6 @@ const CompanySelector: React.FC<ICompanySelectorProps> = observer(() => {
     }
     React.useEffect(() => {
         getCompanies().then((companies) => {
-            // eslint-disable-next-line no-console
-            console.log(companies)
             const storeComp = [] as IEmailId[]
             companies.forEach((c: any) => {
                 storeComp.push({ name: c.name, id: c.id } as IEmailId)

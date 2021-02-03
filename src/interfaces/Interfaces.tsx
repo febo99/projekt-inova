@@ -4,3 +4,7 @@ export interface Intervention {
     leader: string | string[]
     completed: boolean
 }
+export interface IEmailId {
+    name: string
+    id: string
+}
